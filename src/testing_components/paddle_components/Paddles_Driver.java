@@ -1,4 +1,4 @@
-package testing_components.leftpaddle_components;
+package testing_components.paddle_components;
 
 public class Paddles_Driver {
     public static void main(String[] args) {
