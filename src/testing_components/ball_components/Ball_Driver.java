@@ -6,6 +6,15 @@ public class Ball_Driver {
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setSize(550,450);
         frame.setVisible(true);
-        frame.moveBall();
+        //frame.moveBall_Horizontal();
+        //frame.moveBall_12Diagonal();
+        //frame.moveBall_23Diagonal();
+        //frame.moveBall_34Diagonal();
+        //frame.moveBall_45Diagonal();
+        //frame.moveBall_57Diagonal();
+        //frame.moveBall_68Diagonal();
+        //frame.moveBall_79Diagonal();
+
+        frame.getBallMovement();
     }
 }

@@ -39,7 +39,7 @@ public class Paddles_JavaSwing_Test extends JFrame {
 
     private class keyboardHandler implements KeyListener{
 
-        private final Set<Character> pressed = new HashSet<Character>();
+        private final Set<Character> pressed = new HashSet<>();
 
         @Override
         public void keyTyped(KeyEvent e) {
