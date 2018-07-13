@@ -3,8 +3,8 @@ package testing_components.paddle_components;
 import javax.swing.*;
 
 public class Paddle_Label_Test extends JLabel {
-    public boolean isUpPressed;
-    public boolean isDownPressed;
+    private boolean isUpPressed;
+    private boolean isDownPressed;
 
     public Paddle_Label_Test() {
         super();
@@ -25,6 +25,6 @@ public class Paddle_Label_Test extends JLabel {
     }
     private void paddleLocation(int y){
         setLocation(getX(),getY() + y);
-        System.out.println(getLocation());
+        //System.out.println(getLocation());
     }
 }
