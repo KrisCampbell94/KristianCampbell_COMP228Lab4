@@ -14,7 +14,7 @@ public class Paddle_Label_Test extends JLabel {
         setIcon(paddleIcon);
         //handler = new keyboardHandler();
     }
-    public void PaddleUpdate(boolean upKey, boolean downKey){
+    public void paddleUpdate(boolean upKey, boolean downKey){
         isUpPressed = upKey;
         isDownPressed = downKey;
         if(isUpPressed && (getY() > 10))

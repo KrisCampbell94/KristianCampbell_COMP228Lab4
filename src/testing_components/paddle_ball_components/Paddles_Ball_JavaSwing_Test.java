@@ -18,6 +18,8 @@ public class Paddles_Ball_JavaSwing_Test extends JFrame {
     private boolean isIPressed;
     private boolean isKPressed;
 
+    private int gameSpeed;
+
     public Paddles_Ball_JavaSwing_Test(){
         super("PONG");
         getContentPane().setBackground(Color.black);
@@ -38,13 +40,17 @@ public class Paddles_Ball_JavaSwing_Test extends JFrame {
 
         handler = new keyboardHandler();
         addKeyListener(handler);
+
+        gameSpeed = 100;
     }
 
     public void updateGame(){
-        leftPaddle.PaddleUpdate(isWPressed,isSPressed);
-        rightPaddle.PaddleUpdate(isIPressed,isKPressed);
+        leftPaddle.paddleUpdate(isWPressed,isSPressed);
+        rightPaddle.paddleUpdate(isIPressed,isKPressed);
+
+        if(gameSpeed < 10) gameSpeed = 10;
         try {
-            Thread.sleep(100);
+            Thread.sleep(gameSpeed);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
