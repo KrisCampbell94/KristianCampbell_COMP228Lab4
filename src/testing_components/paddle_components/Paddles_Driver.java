@@ -6,5 +6,6 @@ public class Paddles_Driver {
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setSize(550,450);
         frame.setVisible(true);
+        //frame.paddleUpdate();
     }
 }

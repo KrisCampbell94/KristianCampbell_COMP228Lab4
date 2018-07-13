@@ -343,6 +343,7 @@ public class Ball_JavaSwing_Test extends JFrame{
    // }
 
     public void getBallMovement() throws InterruptedException{
+        int speed = 100;
         for (int i = 0; i >= 0; i++) {
             switch (ballMovement){
 
@@ -351,16 +352,16 @@ public class Ball_JavaSwing_Test extends JFrame{
                     if (ballDirection == 0 || ballDirection == 2) {
                         ball.setLocation(ball.getX() - 10, ball.getY());
                         if (ball.getX() <= 10 ) {
-                            if(ballDirection == 0) ballDirection = 1;
-                            else ballDirection = 3;
+                            if(ballDirection == 0) speed += directionChange(1);
+                            else speed += directionChange(3);
                         }
                     }
                     // Right == 1
                     else if (ballDirection == 1 || ballDirection == 3) {
                         ball.setLocation(ball.getX() + 10, ball.getY());
                         if (ball.getX() >= 510) {
-                            if(ballDirection == 1) ballDirection = 0;
-                            else ballDirection = 2;
+                            if(ballDirection == 1) speed += directionChange(0);
+                            else speed += directionChange(2);
                         }
                     }
                     break;
@@ -369,26 +370,26 @@ public class Ball_JavaSwing_Test extends JFrame{
                     //Up Left == 0
                     if (ballDirection == 0) {
                         ball.setLocation(ball.getX() - 10, ball.getY() - 3);
-                        if (ball.getY() <= 10) ballDirection = 2;
-                        if (ball.getX() <= 10) ballDirection = 1;
+                        if (ball.getY() <= 10) speed += directionChange(2);
+                        if (ball.getX() <= 10) speed += directionChange(1);
                     }
                     // Up Right == 1
                     else if (ballDirection == 1) {
                         ball.setLocation(ball.getX() + 10, ball.getY() - 3);
-                        if (ball.getY() <= 10) ballDirection = 3;
-                        if (ball.getX() >= 510) ballDirection = 0;
+                        if (ball.getY() <= 10) speed += directionChange(3);
+                        if (ball.getX() >= 510) speed += directionChange(0);
                     }
                     // Down Left == 2
                     else if (ballDirection == 2) {
                         ball.setLocation(ball.getX() - 10, ball.getY() + 3);
-                        if (ball.getY() >= 390) ballDirection = 0;
-                        if (ball.getX() <= 10) ballDirection = 3;
+                        if (ball.getY() >= 390) speed += directionChange(0);
+                        if (ball.getX() <= 10) speed += directionChange(3);
                     }
                     // Down Right == 3
                     else if (ballDirection == 3) {
                         ball.setLocation(ball.getX() + 10, ball.getY() + 3);
-                        if (ball.getY() >= 390) ballDirection = 1;
-                        if (ball.getX() >= 510) ballDirection = 2;
+                        if (ball.getY() >= 390) speed += directionChange(1);
+                        if (ball.getX() >= 510) speed += directionChange(2);
                     }
                     break;
 
@@ -396,26 +397,26 @@ public class Ball_JavaSwing_Test extends JFrame{
                     //Up Left == 0
                     if (ballDirection == 0) {
                         ball.setLocation(ball.getX() - 10, ball.getY() - 5);
-                        if (ball.getY() <= 10) ballDirection = 2;
-                        if (ball.getX() <= 10) ballDirection = 1;
+                        if (ball.getY() <= 10) speed += directionChange(2);
+                        if (ball.getX() <= 10) speed += directionChange(1);
                     }
                     // Up Right == 1
                     else if (ballDirection == 1) {
                         ball.setLocation(ball.getX() + 10, ball.getY() - 5);
-                        if (ball.getY() <= 10) ballDirection = 3;
-                        if (ball.getX() >= 510) ballDirection = 0;
+                        if (ball.getY() <= 10) speed += directionChange(3);
+                        if (ball.getX() >= 510) speed += directionChange(0);
                     }
                     // Down Left == 2
                     else if (ballDirection == 2) {
                         ball.setLocation(ball.getX() - 10, ball.getY() + 5);
-                        if (ball.getY() >= 390) ballDirection = 0;
-                        if (ball.getX() <= 10) ballDirection = 3;
+                        if (ball.getY() >= 390) speed += directionChange(0);
+                        if (ball.getX() <= 10) speed += directionChange(3);
                     }
                     // Down Right == 3
                     else if (ballDirection == 3) {
                         ball.setLocation(ball.getX() + 10, ball.getY() + 5);
-                        if (ball.getY() >= 390) ballDirection = 1;
-                        if (ball.getX() >= 510) ballDirection = 2;
+                        if (ball.getY() >= 390) speed += directionChange(1);
+                        if (ball.getX() >= 510) speed += directionChange(2);
                     }
                     break;
 
@@ -423,26 +424,26 @@ public class Ball_JavaSwing_Test extends JFrame{
                     //Up Left == 0
                     if (ballDirection == 0) {
                         ball.setLocation(ball.getX() - 10, ball.getY() - 8);
-                        if (ball.getY() <= 10) ballDirection = 2;
-                        if (ball.getX() <= 10) ballDirection = 1;
+                        if (ball.getY() <= 10) speed += directionChange(2);
+                        if (ball.getX() <= 10) speed += directionChange(1);
                     }
                     // Up Right == 1
                     else if (ballDirection == 1) {
                         ball.setLocation(ball.getX() + 10, ball.getY() - 8);
-                        if (ball.getY() <= 10) ballDirection = 3;
-                        if (ball.getX() >= 510) ballDirection = 0;
+                        if (ball.getY() <= 10) speed += directionChange(3);
+                        if (ball.getX() >= 510) speed += directionChange(0);
                     }
                     // Down Left == 2
                     else if (ballDirection == 2) {
                         ball.setLocation(ball.getX() - 10, ball.getY() + 8);
-                        if (ball.getY() >= 390) ballDirection = 0;
-                        if (ball.getX() <= 10) ballDirection = 3;
+                        if (ball.getY() >= 390) speed += directionChange(0);
+                        if (ball.getX() <= 10) speed += directionChange(3);
                     }
                     // Down Right == 3
                     else if (ballDirection == 3) {
                         ball.setLocation(ball.getX() + 10, ball.getY() + 8);
-                        if (ball.getY() >= 390) ballDirection = 1;
-                        if (ball.getX() >= 510) ballDirection = 2;
+                        if (ball.getY() >= 390) speed += directionChange(1);
+                        if (ball.getX() >= 510) speed += directionChange(2);
                     }
                     break;
 
@@ -450,26 +451,26 @@ public class Ball_JavaSwing_Test extends JFrame{
                     //Up Left == 0
                     if (ballDirection == 0) {
                         ball.setLocation(ball.getX() - 10, ball.getY() - 10);
-                        if (ball.getY() <= 10) ballDirection = 2;
-                        if (ball.getX() <= 10) ballDirection = 1;
+                        if (ball.getY() <= 10) speed += directionChange(2);
+                        if (ball.getX() <= 10) speed += directionChange(1);
                     }
                     // Up Right == 1
                     else if (ballDirection == 1) {
                         ball.setLocation(ball.getX() + 10, ball.getY() - 10);
-                        if (ball.getY() <= 10) ballDirection = 3;
-                        if (ball.getX() >= 510) ballDirection = 0;
+                        if (ball.getY() <= 10) speed += directionChange(3);
+                        if (ball.getX() >= 510) speed += directionChange(0);
                     }
                     // Down Left == 2
                     else if (ballDirection == 2) {
                         ball.setLocation(ball.getX() - 10, ball.getY() + 10);
-                        if (ball.getY() >= 390) ballDirection = 0;
-                        if (ball.getX() <= 10) ballDirection = 3;
+                        if (ball.getY() >= 390) speed += directionChange(0);
+                        if (ball.getX() <= 10) speed += directionChange(3);
                     }
                     // Down Right == 3
                     else if (ballDirection == 3) {
                         ball.setLocation(ball.getX() + 10, ball.getY() + 10);
-                        if (ball.getY() >= 390) ballDirection = 1;
-                        if (ball.getX() >= 510) ballDirection = 2;
+                        if (ball.getY() >= 390) speed += directionChange(1);
+                        if (ball.getX() >= 510) speed += directionChange(2);
                     }
                     break;
 
@@ -477,26 +478,26 @@ public class Ball_JavaSwing_Test extends JFrame{
                     //Up Left == 0
                     if (ballDirection == 0) {
                         ball.setLocation(ball.getX() - 10, ball.getY() - 13);
-                        if (ball.getY() <= 10) ballDirection = 2;
-                        if (ball.getX() <= 10) ballDirection = 1;
+                        if (ball.getY() <= 10) speed += directionChange(2);
+                        if (ball.getX() <= 10) speed += directionChange(1);
                     }
                     // Up Right == 1
                     else if (ballDirection == 1) {
                         ball.setLocation(ball.getX() + 10, ball.getY() - 13);
-                        if (ball.getY() <= 10) ballDirection = 3;
-                        if (ball.getX() >= 510) ballDirection = 0;
+                        if (ball.getY() <= 10) speed += directionChange(3);
+                        if (ball.getX() >= 510) speed += directionChange(0);
                     }
                     // Down Left == 2
                     else if (ballDirection == 2) {
                         ball.setLocation(ball.getX() - 10, ball.getY() + 13);
-                        if (ball.getY() >= 390) ballDirection = 0;
-                        if (ball.getX() <= 10) ballDirection = 3;
+                        if (ball.getY() >= 390) speed += directionChange(0);
+                        if (ball.getX() <= 10) speed += directionChange(3);
                     }
                     // Down Right == 3
                     else if (ballDirection == 3) {
                         ball.setLocation(ball.getX() + 10, ball.getY() + 13);
-                        if (ball.getY() >= 390) ballDirection = 1;
-                        if (ball.getX() >= 510) ballDirection = 2;
+                        if (ball.getY() >= 390) speed += directionChange(1);
+                        if (ball.getX() >= 510) speed += directionChange(2);
                     }
                     break;
 
@@ -504,26 +505,26 @@ public class Ball_JavaSwing_Test extends JFrame{
                     //Up Left == 0
                     if (ballDirection == 0) {
                         ball.setLocation(ball.getX() - 10, ball.getY() - 15);
-                        if (ball.getY() <= 10) ballDirection = 2;
-                        if (ball.getX() <= 10) ballDirection = 1;
+                        if (ball.getY() <= 10) speed += directionChange(2);
+                        if (ball.getX() <= 10) speed += directionChange(1);
                     }
                     // Up Right == 1
                     else if (ballDirection == 1) {
                         ball.setLocation(ball.getX() + 10, ball.getY() - 15);
-                        if (ball.getY() <= 10) ballDirection = 3;
-                        if (ball.getX() >= 510) ballDirection = 0;
+                        if (ball.getY() <= 10) speed += directionChange(3);
+                        if (ball.getX() >= 510) speed += directionChange(0);
                     }
                     // Down Left == 2
                     else if (ballDirection == 2) {
                         ball.setLocation(ball.getX() - 10, ball.getY() + 15);
-                        if (ball.getY() >= 390) ballDirection = 0;
-                        if (ball.getX() <= 10) ballDirection = 3;
+                        if (ball.getY() >= 390) speed += directionChange(0);
+                        if (ball.getX() <= 10) speed += directionChange(3);
                     }
                     // Down Right == 3
                     else if (ballDirection == 3) {
                         ball.setLocation(ball.getX() + 10, ball.getY() + 15);
-                        if (ball.getY() >= 390) ballDirection = 1;
-                        if (ball.getX() >= 510) ballDirection = 2;
+                        if (ball.getY() >= 390) speed += directionChange(1);
+                        if (ball.getX() >= 510) speed += directionChange(2);
                     }
                     break;
 
@@ -531,33 +532,39 @@ public class Ball_JavaSwing_Test extends JFrame{
                     //Up Left == 0
                     if (ballDirection == 0) {
                         ball.setLocation(ball.getX() - 10, ball.getY() - 18);
-                        if (ball.getY() <= 10) ballDirection = 2;
-                        if (ball.getX() <= 10) ballDirection = 1;
+                        if (ball.getY() <= 10) speed += directionChange(2);
+                        if (ball.getX() <= 10) speed += directionChange(1);
                     }
                     // Up Right == 1
                     else if (ballDirection == 1) {
                         ball.setLocation(ball.getX() + 10, ball.getY() - 18);
-                        if (ball.getY() <= 10) ballDirection = 3;
-                        if (ball.getX() >= 510) ballDirection = 0;
+                        if (ball.getY() <= 10) speed += directionChange(3);
+                        if (ball.getX() >= 510) speed += directionChange(0);
                     }
                     // Down Left == 2
                     else if (ballDirection == 2) {
                         ball.setLocation(ball.getX() - 10, ball.getY() + 18);
-                        if (ball.getY() >= 390) ballDirection = 0;
-                        if (ball.getX() <= 10) ballDirection = 3;
+                        if (ball.getY() >= 390) speed += directionChange(0);
+                        if (ball.getX() <= 10) speed += directionChange(3);
                     }
                     // Down Right == 3
                     else if (ballDirection == 3) {
                         ball.setLocation(ball.getX() + 10, ball.getY() + 18);
-                        if (ball.getY() >= 390) ballDirection = 1;
-                        if (ball.getX() >= 510) ballDirection = 2;
+                        if (ball.getY() >= 390) speed += directionChange(1);
+                        if (ball.getX() >= 510) speed += directionChange(2);
                     }
                     break;
 
             }
-            Thread.sleep(100);
+            if(speed < 10) speed = 10;
+            Thread.sleep(speed);
             System.out.println(ball.getLocation());
         }
+    }
+
+    private int directionChange(int newValue){
+        ballDirection = newValue;
+        return - 5;
     }
 
     private class keyboardHandler implements KeyListener {
