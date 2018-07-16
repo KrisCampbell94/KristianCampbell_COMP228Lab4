@@ -23,6 +23,8 @@ public class Pong_Game_Test extends JFrame {
     private int gameSpeed = 100;
     private boolean startGame = false;
     private int[] paddlesScore;
+    public int[] getPaddlesScore() { return paddlesScore; }
+
 
     public Pong_Game_Test(){
         super("PONG");
@@ -45,7 +47,7 @@ public class Pong_Game_Test extends JFrame {
         divider = new JLabel();
         divider.setIcon(dividerIcon);
         divider.setSize(10,390);
-        divider.setLocation(275,10);
+        divider.setLocation(275,11);
         add(divider);
 
         leftScore = new Score_Label_Test();
@@ -93,19 +95,18 @@ public class Pong_Game_Test extends JFrame {
     }
 
     private void checkPaddleAndBallPosition(){
-        /* * Size Ball Paddle Add
-           *  5 | 220 | 220 |  0
-           *  4 | 220 | 210 | 10
-           *  3 | 220 | 200 | 20
-           *  2 | 220 | 190 | 30
-           *  1 | 220 | 180 | 40
-           *  2 | 220 | 170 | 50
-           *  3 | 220 | 160 | 60
-           *  4 | 220 | 150 | 70
-           *  5 | 220 | 140 | 80
-        * */
+        // Size Ball Paddle Add
+        // 5 | 220 | 220 |  0
+        // 4 | 220 | 210 | 10
+        // 3 | 220 | 200 | 20
+        // 2 | 220 | 190 | 30
+        // 1 | 220 | 180 | 40
+        // 2 | 220 | 170 | 50
+        // 3 | 220 | 160 | 60
+        // 4 | 220 | 150 | 70
+        // 5 | 220 | 140 | 80
 
-        // LEFT PADDLE COLLISION
+        /*LEFT PADDLE COLLISION*/
         if(ball.getDirection() == 0 || ball.getDirection() == 2){
             if((ball.getX() > 24 && ball.getX() < 36)){
                 if(ball.getY() == leftPaddle.getY()) {
@@ -172,7 +173,7 @@ public class Pong_Game_Test extends JFrame {
             }
         }
 
-        // RIGHT PADDLE COLLISION
+        /*RIGHT PADDLE COLLISION*/
         else if (ball.getDirection() == 1 || ball.getDirection() == 3){
             if((ball.getX() > 484 && ball.getX() < 496)){
                 if(ball.getY() == rightPaddle.getY()) {
