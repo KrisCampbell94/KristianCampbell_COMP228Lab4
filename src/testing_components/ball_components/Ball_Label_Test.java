@@ -1,7 +1,11 @@
 package testing_components.ball_components;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
+import java.net.URL;
 
 public class Ball_Label_Test extends JLabel {
     private int direction;
@@ -45,10 +49,12 @@ public class Ball_Label_Test extends JLabel {
         if(getY() <= 10){
             if (direction == 0) direction = 2;
             else if (direction == 1) direction = 3;
+            playSoundEffect("ball_hit_wall.wav");
         }
         else if (getY() >= 390){
             if (direction == 2) direction = 0;
             else if (direction == 3) direction = 1;
+            playSoundEffect("ball_hit_wall.wav");
         }
     }
 
@@ -174,6 +180,21 @@ public class Ball_Label_Test extends JLabel {
                 else if (direction == 3)
                     ballMovementUpdate(20,false);
                 break;
+        }
+    }
+
+    public void playSoundEffect(String wavFile){
+
+        try{
+            URL url = getClass().getResource(wavFile);
+            AudioInputStream input = AudioSystem.
+                    getAudioInputStream(url);
+            Clip clip = AudioSystem.getClip();
+            clip.open(input);
+            clip.start();
+
+        } catch (Exception e){
+            System.out.println("Error : " + e.getMessage());
         }
     }
 }

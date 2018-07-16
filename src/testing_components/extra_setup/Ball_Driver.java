@@ -1,4 +1,4 @@
-package testing_components.ball_components;
+package testing_components.extra_setup;
 
 public class Ball_Driver {
     public static void main(String[] args) throws InterruptedException  {

@@ -1,11 +1,7 @@
-package testing_components.paddle_components;
-
-import testing_components.keylistener_components.InputListener;
+package testing_components.extra_setup;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.HashSet;
-import java.util.Set;
 import javax.swing.*;
 
 public class Paddles_JavaSwing_Test extends JFrame {

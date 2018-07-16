@@ -1,6 +1,5 @@
-package testing_components.keylistener_components;
+package testing_components.extra_setup.keylistener_components;
 
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 

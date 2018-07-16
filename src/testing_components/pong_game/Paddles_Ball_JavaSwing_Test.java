@@ -1,4 +1,4 @@
-package testing_components.paddle_ball_components;
+package testing_components.pong_game;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -6,12 +6,14 @@ import javax.swing.*;
 
 import testing_components.ball_components.Ball_Label_Test;
 import testing_components.paddle_components.Paddle_Label_Test;
+import testing_components.score_components.Score_Label_Test;
 
 public class Paddles_Ball_JavaSwing_Test extends JFrame {
-    private final Paddle_Label_Test leftPaddle;
-    private final Paddle_Label_Test rightPaddle;
+    private final Paddle_Label_Test leftPaddle, rightPaddle;
     private final Ball_Label_Test ball;
     private final JLabel divider;
+
+    private final Score_Label_Test leftScore, rightScore;
 
     private final keyboardHandler handler;
 
@@ -23,6 +25,7 @@ public class Paddles_Ball_JavaSwing_Test extends JFrame {
 
     private int gameSpeed = 100;
     private boolean startGame = false;
+    private int[] paddlesScore;
 
     public Paddles_Ball_JavaSwing_Test(){
         super("PONG");
@@ -48,23 +51,47 @@ public class Paddles_Ball_JavaSwing_Test extends JFrame {
         divider.setLocation(275,10);
         add(divider);
 
+        leftScore = new Score_Label_Test();
+        leftScore.setSize(78,101);
+        leftScore.setLocation(100,10);
+        add(leftScore);
+
+        rightScore = new Score_Label_Test();
+        rightScore.setSize(78,101);
+        rightScore.setLocation(350,10);
+        add(rightScore);
+
+        paddlesScore = new int[] {0,0};
+
         handler = new keyboardHandler();
         addKeyListener(handler);
     }
 
     public void updateGame(){
-        leftPaddle.paddleUpdate(isWPressed,isSPressed);
-        rightPaddle.paddleUpdate(isIPressed,isKPressed);
+        if(startGame) {
+            leftScore.setScoreLabel(false,paddlesScore[0]);
+            rightScore.setScoreLabel(false,paddlesScore[1]);
 
-        checkPaddleAndBallPosition();
+            leftPaddle.paddleUpdate(isWPressed, isSPressed);
+            rightPaddle.paddleUpdate(isIPressed, isKPressed);
 
-        ball.ballUpdate();
+            checkPaddleAndBallPosition();
 
-        if(gameSpeed < 5) gameSpeed = 5;
-        try {
-            Thread.sleep(gameSpeed);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            ball.ballUpdate();
+
+            if (gameSpeed < 5) gameSpeed = 5;
+            try {
+                Thread.sleep(gameSpeed);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        else{
+            leftScore.setScoreLabel(true,paddlesScore[0]);
+            rightScore.setScoreLabel(true,paddlesScore[1]);
+            if(isSPACEPressed){
+                startGame = true;
+            }
         }
     }
 
@@ -87,18 +114,26 @@ public class Paddles_Ball_JavaSwing_Test extends JFrame {
                 if(ball.getY() == leftPaddle.getY()) {
                     ball.setMovement(9);
                     ball.setDirection(1);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == leftPaddle.getY() + 10) {
                     ball.setMovement(7);
                     ball.setDirection(1);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == leftPaddle.getY() + 20) {
                     ball.setMovement(5);
                     ball.setDirection(1);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == leftPaddle.getY() + 30) {
                     ball.setMovement(3);
                     ball.setDirection(1);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == leftPaddle.getY() + 40) {
                     ball.setMovement(1);
@@ -106,27 +141,37 @@ public class Paddles_Ball_JavaSwing_Test extends JFrame {
                         ball.setDirection(1);
                     else
                         ball.setDirection(3);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == leftPaddle.getY() + 50) {
                     ball.setMovement(3);
                     ball.setDirection(3);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == leftPaddle.getY() + 60) {
                     ball.setMovement(5);
                     ball.setDirection(3);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == leftPaddle.getY() + 70) {
                     ball.setMovement(7);
                     ball.setDirection(3);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == leftPaddle.getY() + 80) {
                     ball.setMovement(9);
                     ball.setDirection(3);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
-                gameSpeed -=5;
             }
             else if(ball.getX() <= 0){
                 // BALL TOO FAR LEFT
+                scoreCount(false);
             }
         }
 
@@ -136,18 +181,26 @@ public class Paddles_Ball_JavaSwing_Test extends JFrame {
                 if(ball.getY() == rightPaddle.getY()) {
                     ball.setMovement(9);
                     ball.setDirection(0);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == rightPaddle.getY() + 10) {
                     ball.setMovement(7);
                     ball.setDirection(0);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == rightPaddle.getY() + 20) {
                     ball.setMovement(5);
                     ball.setDirection(0);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == rightPaddle.getY() + 30) {
                     ball.setMovement(3);
                     ball.setDirection(0);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == rightPaddle.getY() + 40) {
                     ball.setMovement(1);
@@ -155,30 +208,64 @@ public class Paddles_Ball_JavaSwing_Test extends JFrame {
                         ball.setDirection(0);
                     else
                         ball.setDirection(2);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == rightPaddle.getY() + 50) {
                     ball.setMovement(3);
                     ball.setDirection(2);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == rightPaddle.getY() + 60) {
                     ball.setMovement(5);
                     ball.setDirection(2);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == rightPaddle.getY() + 70) {
                     ball.setMovement(7);
                     ball.setDirection(2);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
                 else if(ball.getY() == rightPaddle.getY() + 80) {
                     ball.setMovement(9);
                     ball.setDirection(2);
+                    ball.playSoundEffect("ball_hit_paddle.wav");
+                    gameSpeed -=5;
                 }
-                gameSpeed -=5;
             }
             else if(ball.getX() >= 550){
                 // BALL TOO FAR RIGHT
+                scoreCount(true);
             }
         }
 
+    }
+
+    private void scoreCount(boolean didLeftPaddleWin){
+        ball.playSoundEffect("paddle_miss_ball.wav");
+        ball.setMovement(1);
+        startGame = false;
+        gameSpeed = 100;
+        ball.setLocation(ball.getStartPosition());
+        if(didLeftPaddleWin) {
+            paddlesScore[0] += 1;
+            if(ball.getDirection() == 0)
+                ball.setDirection(1);
+            else
+                ball.setDirection(3);
+        }
+        else {
+            paddlesScore[1] += 1;
+            if(ball.getDirection() == 1)
+                ball.setDirection(0);
+            else
+                ball.setDirection(2);
+        }
+        System.out.println("Left Paddle : " + paddlesScore[0]
+            + " | Right Paddle : " + paddlesScore[1]);
     }
 
     private void setupPaddles(Paddle_Label_Test paddle, int x){

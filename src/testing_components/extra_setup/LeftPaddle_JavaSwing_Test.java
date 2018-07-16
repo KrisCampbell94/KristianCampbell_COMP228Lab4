@@ -1,4 +1,4 @@
-package testing_components.paddle_components;
+package testing_components.extra_setup;
 
 import java.awt.*;
 import java.awt.event.*;

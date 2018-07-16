@@ -1,4 +1,4 @@
-package testing_components.paddle_ball_components;
+package testing_components.pong_game;
 
 public class Paddles_Ball_Driver {
     public static void main(String[] args) {
