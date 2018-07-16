@@ -8,7 +8,8 @@ import testing_components.ball_components.Ball_Label_Test;
 import testing_components.paddle_components.Paddle_Label_Test;
 import testing_components.score_components.Score_Label_Test;
 
-public class Paddles_Ball_JavaSwing_Test extends JFrame {
+public class Pong_Game_Test extends JFrame {
+
     private final Paddle_Label_Test leftPaddle, rightPaddle;
     private final Ball_Label_Test ball;
     private final JLabel divider;
@@ -17,17 +18,13 @@ public class Paddles_Ball_JavaSwing_Test extends JFrame {
 
     private final keyboardHandler handler;
 
-    private boolean isWPressed;
-    private boolean isSPressed;
-    private boolean isIPressed;
-    private boolean isKPressed;
-    private boolean isSPACEPressed;
+    private boolean isWPressed, isSPressed, isIPressed, isKPressed, isSPACEPressed;
 
     private int gameSpeed = 100;
     private boolean startGame = false;
     private int[] paddlesScore;
 
-    public Paddles_Ball_JavaSwing_Test(){
+    public Pong_Game_Test(){
         super("PONG");
         getContentPane().setBackground(Color.black);
         setLayout(null);
