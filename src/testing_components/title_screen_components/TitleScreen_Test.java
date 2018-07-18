@@ -2,18 +2,21 @@ package testing_components.title_screen_components;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
 import javax.swing.*;
-import javax.swing.plaf.FontUIResource;
 
 public class TitleScreen_Test extends JFrame {
     private final JLabel title;
-    private final JLabel message;
+    private final JLabel startMessage;
+    private final JLabel quitMessage;
     private final Icon titleIcon;
-    private final Icon messageIcon;
+    private final Icon startMessageIcon;
+    private final Icon quitMessageIcon;
 
     private boolean isSPACEPressed;
-    public boolean isSPACEPressed() { return isSPACEPressed; }
+    public boolean getIsSPACEPressed() { return isSPACEPressed; }
+
+    private boolean isQPressed;
+    public boolean getIsQPressed(){return isQPressed;}
 
     private keyboardHandler handler;
 
@@ -31,14 +34,23 @@ public class TitleScreen_Test extends JFrame {
         title.setLocation(70,50);
         add(title);
 
-        messageIcon = new ImageIcon(
-                getClass().getResource("PRESS SPACE.png")
+        startMessageIcon = new ImageIcon(
+                getClass().getResource("Space.png")
         );
-        message = new JLabel();
-        message.setIcon(messageIcon);
-        message.setSize(248,35);
-        message.setLocation(150,300);
-        add(message);
+        startMessage = new JLabel();
+        startMessage.setIcon(startMessageIcon);
+        startMessage.setSize(235,19);
+        startMessage.setLocation(150,250);
+        add(startMessage);
+
+        quitMessageIcon = new ImageIcon(
+                getClass().getResource("Quit.png")
+        );
+        quitMessage = new JLabel();
+        quitMessage.setIcon(quitMessageIcon);
+        quitMessage.setSize(235,19);
+        quitMessage.setLocation(150,300);
+        add(quitMessage);
 
         handler = new keyboardHandler();
         addKeyListener(handler);
@@ -61,6 +73,7 @@ public class TitleScreen_Test extends JFrame {
 
         private void changeKeyInput(boolean toggle, KeyEvent e){
             if(e.getKeyCode() == KeyEvent.VK_SPACE) isSPACEPressed = toggle;
+            if(e.getKeyCode() == KeyEvent.VK_Q) isQPressed = toggle;
         }
 
     }

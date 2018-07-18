@@ -21,12 +21,12 @@ public class Pong_Game_Test extends JFrame {
     private boolean isWPressed, isSPressed, isIPressed, isKPressed, isSPACEPressed;
 
     private int gameSpeed = 100;
-    private boolean startGame = false;
+    private boolean startGame;
     private int[] paddlesScore;
     public int[] getPaddlesScore() { return paddlesScore; }
 
 
-    public Pong_Game_Test(){
+    public Pong_Game_Test(boolean startGame){
         super("PONG");
         getContentPane().setBackground(Color.black);
         setLayout(null);
@@ -64,6 +64,8 @@ public class Pong_Game_Test extends JFrame {
 
         handler = new keyboardHandler();
         addKeyListener(handler);
+
+        this.startGame = startGame;
     }
 
     public void updateGame(){
