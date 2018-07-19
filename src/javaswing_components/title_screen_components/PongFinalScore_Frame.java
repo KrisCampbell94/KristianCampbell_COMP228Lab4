@@ -16,7 +16,7 @@ public class PongFinalScore_Frame extends JFrame {
         setLayout(null);
         JLabel result = new JLabel();
         result.setSize(235,19);
-        result.setLocation(150,250);
+        result.setLocation(150,150);
         if(didLeftWin)
             result.setIcon(new ImageIcon(
                     getClass().getResource("LeftWins.png")
