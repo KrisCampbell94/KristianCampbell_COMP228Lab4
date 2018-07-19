@@ -1,4 +1,4 @@
-package testing_components.extra_setup;
+package javaswing_components.extra_setup;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -20,7 +20,7 @@ public class LeftPaddle_JavaSwing_Test extends JPanel {
 
         Icon paddleIcon =
                 new ImageIcon(getClass().
-                        getResource("leftPaddle.png"));
+                        getResource("paddle.png"));
 
         leftPaddle = new JLabel();
         leftPaddle.setIcon(paddleIcon);

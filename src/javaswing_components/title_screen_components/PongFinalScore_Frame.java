@@ -1,17 +1,20 @@
-package testing_components.score_components;
+package javaswing_components.title_screen_components;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.Color;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
-public class FinalScore_Frame_Test extends JFrame {
-    private final JLabel result;
+// The class of the Final Score that extends the JFrame class
+public class PongFinalScore_Frame extends JFrame {
 
-    public FinalScore_Frame_Test(boolean didLeftWin){
+    // Constructor of the class
+    // Ask if the left paddle won. If not, then the right paddle won
+    public PongFinalScore_Frame(boolean didLeftWin){
         super("PONG");
         getContentPane().setBackground(Color.black);
         setLayout(null);
-        result = new JLabel();
+        JLabel result = new JLabel();
         result.setSize(235,19);
         result.setLocation(150,250);
         if(didLeftWin)

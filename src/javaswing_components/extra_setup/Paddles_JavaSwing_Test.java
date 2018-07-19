@@ -1,4 +1,4 @@
-package testing_components.extra_setup;
+package javaswing_components.extra_setup;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -16,7 +16,7 @@ public class Paddles_JavaSwing_Test extends JFrame {
 
         Icon paddleIcon =
                 new ImageIcon(getClass().
-                        getResource("leftPaddle.png"));
+                        getResource("paddle.png"));
         leftPaddle = new JLabel();
         leftPaddle.setIcon(paddleIcon);
         leftPaddle.setSize(25,75);

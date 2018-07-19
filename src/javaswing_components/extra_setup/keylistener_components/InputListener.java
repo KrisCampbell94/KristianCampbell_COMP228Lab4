@@ -1,4 +1,4 @@
-package testing_components.extra_setup.keylistener_components;
+package javaswing_components.extra_setup.keylistener_components;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

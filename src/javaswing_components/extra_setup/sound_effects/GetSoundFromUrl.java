@@ -1,4 +1,4 @@
-package testing_components.extra_setup.sound_effects;
+package javaswing_components.extra_setup.sound_effects;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;

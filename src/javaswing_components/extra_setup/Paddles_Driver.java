@@ -1,6 +1,4 @@
-package testing_components.extra_setup;
-
-import testing_components.extra_setup.Paddles_JavaSwing_Test;
+package javaswing_components.extra_setup;
 
 public class Paddles_Driver {
     public static void main(String[] args) {

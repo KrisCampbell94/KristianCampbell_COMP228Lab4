@@ -1,22 +1,23 @@
-package testing_components.pong_game;
+package javaswing_components.pong_game;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Point;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
-import testing_components.ball_components.Ball_Label_Test;
-import testing_components.paddle_components.Paddle_Label_Test;
-import testing_components.score_components.Score_Label_Test;
+import javaswing_components.ball_components.PongBall_Label;
+import javaswing_components.paddle_components.PongPaddle_Label;
+import javaswing_components.score_components.PongScore_Label;
 
-public class Pong_Game_Test extends JFrame {
+public class PongGame_Frame extends JFrame {
 
-    private final Paddle_Label_Test leftPaddle, rightPaddle;
-    private final Ball_Label_Test ball;
-    private final JLabel divider;
+    private final PongPaddle_Label leftPaddle, rightPaddle;
+    private final PongBall_Label ball;
 
-    private final Score_Label_Test leftScore, rightScore;
-
-    private final keyboardHandler handler;
+    private final PongScore_Label leftScore, rightScore;
 
     private boolean isWPressed, isSPressed, isIPressed, isKPressed, isSPACEPressed;
 
@@ -26,43 +27,44 @@ public class Pong_Game_Test extends JFrame {
     public int[] getPaddlesScore() { return paddlesScore; }
 
 
-    public Pong_Game_Test(boolean startGame){
+    public PongGame_Frame(boolean startGame){
         super("PONG");
         getContentPane().setBackground(Color.black);
         setLayout(null);
 
-        leftPaddle = new Paddle_Label_Test();
+        leftPaddle = new PongPaddle_Label();
         setupPaddles(leftPaddle,20);
 
-        rightPaddle = new Paddle_Label_Test();
+        rightPaddle = new PongPaddle_Label();
         setupPaddles(rightPaddle,490);
 
-        ball = new Ball_Label_Test();
+        ball = new PongBall_Label();
         ball.setSize(10,10);
         ball.setLocation(275,220);
         add(ball);
         ball.setStartPosition(new Point(275,220));
 
-        Icon dividerIcon = new ImageIcon(getClass().getResource("divider.png"));
-        divider = new JLabel();
-        divider.setIcon(dividerIcon);
+        JLabel divider = new JLabel();
+        divider.setIcon(new ImageIcon(
+                getClass().getResource("divider.png"))
+        );
         divider.setSize(10,390);
         divider.setLocation(275,11);
         add(divider);
 
-        leftScore = new Score_Label_Test();
+        leftScore = new PongScore_Label();
         leftScore.setSize(78,101);
         leftScore.setLocation(100,10);
         add(leftScore);
 
-        rightScore = new Score_Label_Test();
+        rightScore = new PongScore_Label();
         rightScore.setSize(78,101);
         rightScore.setLocation(350,10);
         add(rightScore);
 
         paddlesScore = new int[] {0,0};
 
-        handler = new keyboardHandler();
+        keyboardHandler handler = new keyboardHandler();
         addKeyListener(handler);
 
         this.startGame = startGame;
@@ -90,9 +92,8 @@ public class Pong_Game_Test extends JFrame {
         else{
             leftScore.setScoreLabel(true,paddlesScore[0]);
             rightScore.setScoreLabel(true,paddlesScore[1]);
-            if(isSPACEPressed){
+            if(isSPACEPressed)
                 startGame = true;
-            }
         }
     }
 
@@ -241,7 +242,6 @@ public class Pong_Game_Test extends JFrame {
                 scoreCount(true);
             }
         }
-
     }
 
     private void scoreCount(boolean didLeftPaddleWin){
@@ -268,13 +268,15 @@ public class Pong_Game_Test extends JFrame {
             + " | Right Paddle : " + paddlesScore[1]);
     }
 
-    private void setupPaddles(Paddle_Label_Test paddle, int x){
+    private void setupPaddles(PongPaddle_Label paddle, int x){
         paddle.setSize(15,85);
         paddle.setLocation(x,150);
         paddle.setVisible(true);
         add(paddle);
     }
 
+    // The keyboard handler implements key listener
+    // More information at location: javaswing_components.title_screen_components.PongTitleScreen_Frame Line 63
     private class keyboardHandler implements KeyListener{
         @Override
         public void keyTyped(KeyEvent e) {  }
