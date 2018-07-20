@@ -1,16 +1,18 @@
-package javaswing_components.ball_components;
+package javafx_components.ball_components;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.net.URL;
 
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 import java.awt.Point;
 
 // The class of the ball that extends the JLabel class
-public class PongBall_Label extends JLabel {
+public class PongBall_Label extends Label {
     // The 8 directions of the ball
     private int direction;
     // The different movements/angles of the ball
@@ -36,8 +38,11 @@ public class PongBall_Label extends JLabel {
     // Sets up the Icon, direction, and movement
     public PongBall_Label(){
         super();
-        setIcon(new ImageIcon(getClass().
-                getResource("ball.jpg")));
+        setGraphic(new ImageView(
+                new Image(
+                        getClass().getResourceAsStream("ball.jpg"))
+                )
+        );
         direction = 0;
         movement = 1;
     }
@@ -46,18 +51,19 @@ public class PongBall_Label extends JLabel {
     // with parameters to insert a new value for Y and to ask if the ball is moving left
     private void ballMovementUpdate(int newY, boolean isLeft) {
         if (isLeft)
-            setLocation(getX() - 10, getY() + newY); // Sets the location of this object
+            setTranslateX(getTranslateX() - 10);
         else
-            setLocation(getX() + 10, getY() + newY);
+            setTranslateX(getTranslateX() + 10);
 
+        setTranslateY(getTranslateY() + newY);
         // If ball hits the top of the border
-        if(getY() <= 10){
+        if(getTranslateY() <= 10){
             if (getDirection() == 0) setDirection(2);
             else if (getDirection() == 1) setDirection(3);
             playSoundEffect("ball_hit_wall.wav");
         }
         // If ball hits the bottom of the border
-        else if (getY() >= 390){
+        else if (getTranslateY() >= 390){
             if (getDirection() == 2) setDirection(0);
             else if (getDirection() == 3) setDirection(1);
             playSoundEffect("ball_hit_wall.wav");
@@ -81,7 +87,8 @@ public class PongBall_Label extends JLabel {
         // Refer to the Movement algorithm on Line 69
         switch (getMovement()){
             case 0:
-                setLocation(getStartPosition());
+                setTranslateX(getStartPosition().x);
+                setTranslateY(getStartPosition().y);
                 break;
             case 1:
                 // Left == 0
