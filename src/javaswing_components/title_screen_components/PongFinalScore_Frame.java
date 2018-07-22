@@ -11,7 +11,7 @@ public class PongFinalScore_Frame extends JFrame {
     // Constructor of the class
     // Ask if the left paddle won. If not, then the right paddle won
     public PongFinalScore_Frame(boolean didLeftWin){
-        super("PONG");
+        super("PONG - By : Kris Campbell | 2018");
         getContentPane().setBackground(Color.black);
         setLayout(null);
         JLabel result = new JLabel();

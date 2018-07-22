@@ -22,7 +22,7 @@ public class PongTitleScreen_Frame extends JFrame {
     // Constructor of the class
     public PongTitleScreen_Frame(){
         // Sets the title, background and layout respectively
-        super("PONG");
+        super("PONG - By : Kris Campbell | 2018");
         getContentPane().setBackground(Color.black);
         setLayout(null);
 

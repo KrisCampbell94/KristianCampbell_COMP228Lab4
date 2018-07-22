@@ -35,7 +35,7 @@ public class PongGame_Frame extends JFrame {
     // With the parameter to set startGame
     public PongGame_Frame(boolean startGame){
         // Sets up the frame itself
-        super("PONG");
+        super("PONG - By : Kris Campbell | 2018");
         getContentPane().setBackground(Color.black);
         setLayout(null);
 

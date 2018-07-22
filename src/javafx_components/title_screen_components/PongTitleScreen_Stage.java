@@ -32,7 +32,7 @@ public class PongTitleScreen_Stage extends Stage {
     public PongTitleScreen_Stage(){
         // Sets the title
         super();
-        setTitle("PONG");
+        setTitle("PONG - By : Kris Campbell | 2018");
         // Creates a simple pane object to store all the Labels and set the background colour
         Pane aPane = new Pane();
         // Sets background colour to black

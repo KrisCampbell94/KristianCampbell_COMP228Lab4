@@ -20,7 +20,7 @@ public class PongFinalScore_Stage extends Stage {
     // Ask if the left paddle won. If not, then the right paddle won
     public PongFinalScore_Stage(boolean didLeftWin){
         super();
-        setTitle("PONG");
+        setTitle("PONG - By : Kris Campbell | 2018");
         Pane aPane = new Pane();
         aPane.setStyle("-fx-background-color: #000000");
 

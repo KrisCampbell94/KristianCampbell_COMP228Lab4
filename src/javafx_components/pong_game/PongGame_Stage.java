@@ -44,7 +44,7 @@ public class PongGame_Stage extends Stage {
     // With the parameter to set startGame
     public PongGame_Stage(boolean startGame){
         super();
-        setTitle("PONG");
+        setTitle("PONG - By : Kris Campbell | 2018");
         Pane aPane = new Pane();
         aPane.setStyle("-fx-background-color: #000000");
 
