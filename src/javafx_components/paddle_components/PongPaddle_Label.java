@@ -4,16 +4,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-// The class of the paddle that extends the JLabel class
+// The class of the paddle that extends the Label class
 public class PongPaddle_Label extends Label {
 
     // Constructor of the paddle
-    // Sets the icon to the png file
+    // Sets the graphic to the png file
     public PongPaddle_Label() {
         super();
         setGraphic(new ImageView(
                         new Image(
-                                getClass().getResourceAsStream("paddle.png"))
+                                getClass().getResourceAsStream("paddle.png"),15,85,false,false)
                 )
         );
     }

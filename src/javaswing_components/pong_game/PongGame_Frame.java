@@ -267,7 +267,7 @@ public class PongGame_Frame extends JFrame {
     }
 
     // The keyboard handler implements key listener
-    // More information at location: javaswing_components.title_screen_components.PongTitleScreen_Frame Line 63
+    // More information at location: javaswing_components.title_screen_components.PongTitleScreen_Stage Line 63
     private class keyboardHandler implements KeyListener{
         @Override
         public void keyTyped(KeyEvent e) {  }

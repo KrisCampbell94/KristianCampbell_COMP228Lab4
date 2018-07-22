@@ -4,19 +4,20 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.net.URL;
+import java.awt.Point;
 
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.awt.Point;
 
-// The class of the ball that extends the JLabel class
+
+// The class of the ball that extends the Label class
 public class PongBall_Label extends Label {
     // The 8 directions of the ball
     private int direction;
     // The different movements/angles of the ball
-    // Refer to the Movement algorithm on Line 69
+    // Refer to the Movement algorithm on Line 74
     private int movement;
 
     // The starting position of the ball
@@ -35,12 +36,12 @@ public class PongBall_Label extends Label {
     public void setStartPosition(Point startPosition) { this.startPosition = startPosition; }
 
     // Constructor of the ball
-    // Sets up the Icon, direction, and movement
+    // Sets up the Graphic, direction, and movement
     public PongBall_Label(){
         super();
         setGraphic(new ImageView(
                 new Image(
-                        getClass().getResourceAsStream("ball.jpg"))
+                        getClass().getResourceAsStream("ball.jpg"),10,10,false,false)
                 )
         );
         direction = 0;
@@ -84,7 +85,7 @@ public class PongBall_Label extends Label {
     // Updates the ball's movement
     public void ballUpdate(){
         // Activates a switch for movement
-        // Refer to the Movement algorithm on Line 69
+        // Refer to the Movement algorithm on Line 74
         switch (getMovement()){
             case 0:
                 setTranslateX(getStartPosition().x);
